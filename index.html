@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <title>Frontend Mentor | Contact form</title>
+    <script src="./index.js" defer></script>
   </head>
   <body>
     <main>
@@ -26,9 +27,11 @@
               required
               class="form-field__input input"
             />
-            <span aria-live="polite" class="form-field__error"
-              >This field is required</span
-            >
+            <span
+              aria-live="polite"
+              data-name="first-name"
+              class="form-field__error"
+            ></span>
           </div>
           <div class="form-field">
             <label for="last-name" class="form-field__label">Last Name</label>
@@ -39,9 +42,11 @@
               required
               class="form-field__input input"
             />
-            <span aria-live="polite" class="form-field__error"
-              >This field is required</span
-            >
+            <span
+              aria-live="polite"
+              data-name="last-name"
+              class="form-field__error"
+            ></span>
           </div>
           <div class="form-field">
             <label for="email" class="form-field__label">Email Address</label>
@@ -52,14 +57,16 @@
               required
               class="form-field__input input"
             />
-            <span aria-live="polite" class="form-field__error"
-              >Please enter a valid email address</span
-            >
+            <span
+              aria-live="polite"
+              data-name="email"
+              class="form-field__error"
+            ></span>
           </div>
           <fieldset>
             <div class="form-field">
               <legend class="form-field__label">Query Type</legend>
-              <div class="form-field__input radio-group">
+              <div data-name="query-type" class="form-field__input radio-group">
                 <span class="radio input">
                   <input
                     type="radio"
@@ -86,9 +93,11 @@
                   >
                 </span>
               </div>
-              <span aria-live="polite" class="form-field__error"
-                >Please select a query type</span
-              >
+              <span
+                aria-live="polite"
+                data-name="query-type"
+                class="form-field__error"
+              ></span>
             </div>
           </fieldset>
           <div class="form-field">
@@ -99,9 +108,11 @@
               required
               class="form-field__input input textarea"
             ></textarea>
-            <span aria-live="polite" class="form-field__error"
-              >This field is required</span
-            >
+            <span
+              aria-live="polite"
+              data-name="message"
+              class="form-field__error"
+            ></span>
           </div>
           <div class="form-field form-field_checkbox">
             <input
@@ -114,9 +125,11 @@
             <label for="consent" class="form-field__label"
               >I consent to being contacted by the team</label
             >
-            <span aria-live="polite" class="form-field__error"
-              >To submit this form, please consent to being contacted</span
-            >
+            <span
+              aria-live="polite"
+              data-name="consent"
+              class="form-field__error"
+            ></span>
           </div>
           <button id="submit" class="button">Submit</button>
           <dialog id="success" aria-labelledby="success-title" class="toast">

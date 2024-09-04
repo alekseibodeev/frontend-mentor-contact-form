@@ -69,6 +69,10 @@ body {
   border-color: var(--clr-green-600);
 }
 
+.input.input_invalid {
+  border-color: var(--clr-red-600);
+}
+
 .textarea {
   resize: none;
   height: 15rem;
@@ -115,6 +119,7 @@ body {
 
 .form-field_checkbox .form-field__label {
   cursor: pointer;
+  justify-self: self-start;
 }
 
 .form-field__input {
