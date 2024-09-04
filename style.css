@@ -61,8 +61,12 @@ body {
 }
 
 .container {
+  max-width: 48rem;
+  min-height: 100vh;
   margin-inline: auto;
   padding: 2rem 1rem;
+  display: grid;
+  align-content: center;
 }
 
 .input {
@@ -90,14 +94,58 @@ body {
   background-color: var(--clr-white);
   padding: 1.5rem;
   border-radius: 1rem;
-  display: grid;
-  gap: 0.4rem;
 }
 
 .form__title {
   font-size: var(--fs-700);
   font-weight: var(--fw-bold);
   margin-block-end: 1.5rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.4rem;
+  grid-template-areas:
+    "title"
+    "first-name"
+    "last-name"
+    "email"
+    "query-type"
+    "message"
+    "consent"
+    "submit";
+}
+
+.contact-form__title {
+  grid-area: title;
+}
+
+.contact-form__first-name {
+  grid-area: first-name;
+}
+
+.contact-form__last-name {
+  grid-area: last-name;
+}
+
+.contact-form__email {
+  grid-area: email;
+}
+
+.contact-form__query-type {
+  grid-area: query-type;
+}
+
+.contact-form__message {
+  grid-area: message;
+}
+
+.contact-form__consent {
+  grid-area: consent;
+}
+
+.contact-form__submit {
+  grid-area: submit;
 }
 
 .form-field {
@@ -259,4 +307,31 @@ body {
 
 .toast__title::before {
   content: url("./assets/images/icon-success-check.svg");
+}
+
+@media screen and (min-width: 48rem) {
+  .textarea {
+    height: 6.5rem;
+  }
+
+  .form {
+    padding: 2.5rem;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title      title"
+      "first-name last-name"
+      "email      email"
+      "query-type query-type"
+      "message    message"
+      "consent    consent"
+      "submit     submit";
+    column-gap: 1rem;
+  }
+
+  .radio-group {
+    grid-template-columns: 1fr 1fr;
+  }
 }
