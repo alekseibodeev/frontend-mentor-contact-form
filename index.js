@@ -23,6 +23,7 @@ const inputs = query(".form-field__input");
 const errors = query(".form-field__error");
 const form = document.getElementById("contact-form");
 const submit = document.getElementById("submit");
+const toast = document.getElementById("success");
 
 const validateInput = (name) => {
   const input = inputs[name];
@@ -99,6 +100,20 @@ const handleInputChange = (event) => {
   validate(name);
 };
 
+const createOpenToast = () => {
+  const TOAST_DURATION = 2500;
+  let timeoutId;
+  return () => {
+    if (timeoutId) clearTimeout(timeoutId);
+    toast.show();
+    timeoutId = setTimeout(() => {
+      toast.close();
+    }, TOAST_DURATION);
+  };
+};
+
+const openToast = createOpenToast();
+
 Object.values(inputs).forEach((input) =>
   input.addEventListener("change", handleInputChange)
 );
@@ -106,7 +121,7 @@ Object.values(inputs).forEach((input) =>
 submit.addEventListener("click", (event) => {
   event.preventDefault();
   if (form.checkValidity()) {
-    console.log("Open toast. Form is valid!");
+    openToast();
   } else {
     Object.keys(inputs).forEach((name) => validate(name));
   }
