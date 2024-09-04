@@ -114,6 +114,20 @@ const createOpenToast = () => {
 
 const openToast = createOpenToast();
 
+const clearForm = () => {
+  Object.entries(inputs).forEach(([name, input]) => {
+    if (name === "query-type") {
+      input.querySelectorAll("input").forEach((radio) => {
+        radio.checked = false;
+      });
+    } else if (name === "consent") {
+      input.checked = false;
+    } else {
+      input.value = "";
+    }
+  });
+};
+
 Object.values(inputs).forEach((input) =>
   input.addEventListener("change", handleInputChange)
 );
@@ -122,6 +136,7 @@ submit.addEventListener("click", (event) => {
   event.preventDefault();
   if (form.checkValidity()) {
     openToast();
+    clearForm();
   } else {
     Object.keys(inputs).forEach((name) => validate(name));
   }
